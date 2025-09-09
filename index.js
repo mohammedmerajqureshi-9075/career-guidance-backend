@@ -4,7 +4,11 @@ import cors from "cors";
 import cookieParser from 'cookie-parser'
 import { connectingToDb } from "./db/connection.js";
 import userRoutes from "./routes/userAuthRoutes.js";
+<<<<<<< HEAD
 import adminRouter from "./routes/adminRoutes.js";
+=======
+import blogRouter from "./routes/blogRoutes.js";
+>>>>>>> b363dcc2cdb1d2f06b1269b6ec26959c9ae02a8e
 
 
 
@@ -20,8 +24,13 @@ app.use(cookieParser());
 
 //User
 app.use("/api/auth/user",userRoutes)
+<<<<<<< HEAD
 //Admin
 app.use("/subadmin",adminRouter)
+=======
+app.use('/api/blog', blogRouter);
+
+>>>>>>> b363dcc2cdb1d2f06b1269b6ec26959c9ae02a8e
 
 
 
