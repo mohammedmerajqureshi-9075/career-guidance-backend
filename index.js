@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from 'cookie-parser'
 import { connectingToDb } from "./db/connection.js";
 import userRoutes from "./routes/userAuthRoutes.js";
+import blogRouter from "./routes/blogRoutes.js";
 
 
 
@@ -19,6 +20,8 @@ app.use(cookieParser());
 
 //User
 app.use("/api/auth/user",userRoutes)
+app.use('/api/blog', blogRouter);
+
 
 
 
