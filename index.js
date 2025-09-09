@@ -21,6 +21,7 @@ app.use(cookieParser());
 //User
 app.use("/api/auth/user",userRoutes)
 app.use('/api/blog', blogRouter);
+// app.use('/api/bookmark',b)
 
 
 
