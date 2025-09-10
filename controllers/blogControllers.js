@@ -9,23 +9,19 @@ import { getAllBlogsService } from "../services/blogServices.js";
 
 
 
-// 🟢 Controller: Create Blog
+
 export const createBlog = async (req, res) => {
   try {
-    // request body se blog ka data nikal rahe
     const blogData = req.body;
 
-    // Service ko call karke actual DB operation karte hain
     const newBlog = await createBlogService(blogData);
 
-    // Agar blog ban gaya, 201 status ke sath response bhejte
     res.status(201).json({
       success: true,
       message: "Blog created successfully",
       data: newBlog
     });
   } catch (error) {
-    // Agar service se error aaya, yahan handle hoga
     res.status(400).json({
       success: false,
       message: error.message
@@ -34,7 +30,6 @@ export const createBlog = async (req, res) => {
 };
 
 
-// 🟢 Controller: Update Blog
 export const updateBlog = async (req, res) => {
   try {
     const { id } = req.params;      // URL se id aayegi
@@ -61,7 +56,7 @@ export const updateBlog = async (req, res) => {
 
 
 
-// 🟢 Controller: Delete Blog
+//  Controller: Delete Blog
 export const deleteBlog = async (req, res) => {
   try {
     const { id } = req.params;
@@ -85,7 +80,7 @@ export const deleteBlog = async (req, res) => {
 };
 
 
-// 🟢 Controller: Get All Blogs
+//  Controller: Get All Blogs
 export const getAllBlogs = async (req, res) => {
   try {
     const blogs = await getAllBlogsService();
@@ -102,7 +97,7 @@ export const getAllBlogs = async (req, res) => {
 
 
 
-// 🟢 Controller: Get One Blog
+//  Controller: Get One Blog
 export const getBlogById = async (req, res) => {
   try {
     const { id } = req.params;

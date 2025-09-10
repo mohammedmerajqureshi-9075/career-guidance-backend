@@ -2,10 +2,8 @@ import Blog from "../models/blogModel.js";
 // import Blog from "../models/blogModel.js";
 
 
-// 🟢 Service: Create a new blog
 export const createBlogService = async (blogData) => {
   try {
-    // Blog schema ke hisaab se ek naya document banayenge
     const blog = new Blog(blogData);
 
     // Database me save karenge
@@ -22,7 +20,7 @@ export const createBlogService = async (blogData) => {
 
 
 
-// 🟢 Service: Update Blog
+//  Service: Update Blog
 export const updateBlogService = async (id, updateData) => {
   try {
     // Blog findByIdAndUpdate se update hoga
@@ -50,7 +48,7 @@ export const deleteBlogService = async (id) => {
 };
 
 
-// 🟢 Service: Get All Blogs
+//  Service: Get All Blogs
 export const getAllBlogsService = async () => {
   try {
     const blogs = await Blog.find().sort({ createdAt: -1 }); // latest first
@@ -61,7 +59,7 @@ export const getAllBlogsService = async () => {
 };
 
 
-// 🟢 Service: Get One Blog by ID
+//  Service: Get One Blog by ID
 export const getBlogByIdService = async (id) => {
   try {
     const blog = await Blog.findById(id);

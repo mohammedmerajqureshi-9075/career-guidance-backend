@@ -1,11 +1,13 @@
 import express from "express";
-import { addBookmark, removeBookmark, getUserBookmarks } from "../controllers/bookmarkController.js";
-// import { userAuthToken } from "../middleware/authMiddleware.js";
 
-const router = express.Router();
+import { userAuthToken } from "../middlewares/authMiddleware.js";
+import { addBookmark, getUserBookmarks, removeBookmark } from "../controllers/bookmarkControllers.js";
 
-router.post("/",  addBookmark);
-router.delete("/",  removeBookmark);
-router.get("/",  getUserBookmarks);
 
-export default router;
+const bookmarkRouter = express.Router();
+
+bookmarkRouter.post("/create", userAuthToken, addBookmark);
+bookmarkRouter.delete("/delete", userAuthToken, removeBookmark);
+bookmarkRouter.get("/getall", userAuthToken, getUserBookmarks);
+
+export default bookmarkRouter;
