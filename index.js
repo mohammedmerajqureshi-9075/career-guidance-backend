@@ -26,6 +26,7 @@ app.use("/api/auth/user",userRoutes)
 app.use("/subadmin",adminRouter)
 
 app.use('/api/blog', blogRouter);
+// app.use('/api/bookmark',b)
 
 app.use("/api/careers", careerRouter);
 
