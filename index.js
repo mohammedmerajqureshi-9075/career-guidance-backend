@@ -6,7 +6,9 @@ import { connectingToDb } from "./db/connection.js";
 import userRoutes from "./routes/userAuthRoutes.js";
 import adminRouter from "./routes/adminRoutes.js";
 import blogRouter from "./routes/blogRoutes.js";
+
 import bookmarkRouter from "./routes/bookmarkRoutes.js";
+import careerRouter from "./routes/careerRoutes.js";
 
 
 
@@ -24,8 +26,14 @@ app.use(cookieParser());
 app.use("/api/auth/user",userRoutes)
 //Admin
 app.use("/subadmin",adminRouter)
+
+
 app.use('/api/blog', blogRouter);
 app.use('/api/bookmark',bookmarkRouter)
+
+
+
+app.use("/api/careers", careerRouter);
 
 
 
