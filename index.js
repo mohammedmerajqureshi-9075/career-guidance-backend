@@ -16,8 +16,8 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:3000', 
-  credentials: true 
+  origin: [process.env.CLIENT_URL, "http://localhost:3000"],
+  credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser());
@@ -39,7 +39,8 @@ app.use("/api/careers", careerRouter);
 
 
 let dbString = process.env.DB_STRING;
-let port = process.env.PORT;
+const port = process.env.PORT || 6000;
+
 
 connectingToDb(dbString)
 
