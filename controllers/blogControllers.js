@@ -90,6 +90,8 @@ export const getAllBlogs = async (req, res) => {
       count: blogs.length,
       data: blogs
     });
+console.log("Request handled by PID:", process.pid);
+
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
