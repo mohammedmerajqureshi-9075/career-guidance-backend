@@ -36,7 +36,7 @@ app.use('/api/bookmark',bookmarkRouter)
 app.use("/api/careers", careerRouter);
 
 
-
+//add pw2
 
 let dbString = process.env.DB_STRING;
 const port = process.env.PORT || 6000;
