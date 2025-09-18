@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
   res.send(`Hello from worker PID: ${process.pid}`);
 });
 app.use(cors({
-  origin: 'http://localhost:3000', 
-  credentials: true 
+  origin: [process.env.CLIENT_URL, "http://localhost:3000"],
+  credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser());
@@ -44,7 +44,8 @@ console.log("CPU Cores detected:", os.cpus().length);
 
 
 let dbString = process.env.DB_STRING;
-let port = process.env.PORT;
+const port = process.env.PORT || 6000;
+
 
 connectingToDb(dbString)
 
