@@ -65,6 +65,10 @@ export const getAdminProfile = async (req, res) => {
       message: "Admin profile fetched successfully.",
       data: req.user,
     });
+
+console.log("Request handled by PID:", process.pid);
+  // res.json({ message: "Admin profile", pid: process.pid });
+
   } catch (err) {
     res.status(500).json({
       message: "Failed to fetch admin profile.",
